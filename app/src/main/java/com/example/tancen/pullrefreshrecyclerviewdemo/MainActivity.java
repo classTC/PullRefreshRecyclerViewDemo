@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
-
+            //如果滚动到底部，就获取更多的数据
             if (mAdapter != null && newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == mAdapter.getItemCount()) {
 
                 requestMoreData();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void run() {
                 ArrayList<DataBean> list = new ArrayList<>();
-                for (int i = (int) (5 + Math.random() * 10); i >=0; i--) {
+                for (int i = (int) (5 + Math.random() * 10); i >= 0; i--) {
                     DataBean bean = new DataBean();
                     bean.setId(i);
                     bean.setName("data_refresh_" + i);
